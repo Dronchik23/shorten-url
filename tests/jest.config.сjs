@@ -1,0 +1,42 @@
+module.exports = {
+    // Путь к корневой директории проекта
+    rootDir: '.',
+
+   collectCoverage: true,
+
+   collectCoverageFrom: [
+           "src/**/*.{js,jsx}", // например, собирать покрытие только из файлов в папке src
+           "!src/index.js"     // исключить файл index.js
+       ],
+
+    coverageThreshold: {
+        global: {
+            branches: 80,
+            functions: 80,
+            lines: 80,
+            statements: 80
+        }
+    },
+
+    // Указывает, что тесты должны быть выполнены в среде Node.js
+    testEnvironment: 'node',
+
+    // Массив путей к модулям, которые следует запустить перед запуском тестов
+    setupFiles: [],
+
+    // Массив путей к модулям, которые следует запустить перед запуском каждого из тестовых файлов
+    setupFilesAfterEnv: [],
+
+    // Массив суффиксов файлов, которые будут использоваться при поиске файлов тестов
+    testMatch: ['**/tests/**/*.js'],
+
+    // Массив путей к модулям, которые следует исключить из тестов
+    testPathIgnorePatterns: ['/node_modules/'],
+
+    // Указывает, должен ли Jest автоматически сбрасывать моки перед каждым тестом
+    clearMocks: true,
+
+    transform: {
+      '^.+\\.js$': 'babel-jest'
+    },
+};
